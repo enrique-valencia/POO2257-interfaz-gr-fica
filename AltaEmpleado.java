@@ -11,10 +11,13 @@ import mx.unam.aragon.fes.Empleado;
  * @author 52553
  */
 public class AltaEmpleado extends javax.swing.JFrame {
+    private ArrayList<Empleado> = new ArraList
+            
 
     /** Creates new form AltaEmpleado */
     public AltaEmpleado() {
         initComponents();
+        lista=new ArrayLista<Empleado>();
     }
 
     /** This method is called from within the constructor to
@@ -380,15 +383,28 @@ public class AltaEmpleado extends javax.swing.JFrame {
        emp.getDomicilio().setColonia(this.jTextField8.getText()); 
        emp.getDomicilio().setDelegacion(this.jTextField9.getText());
        emp.getDomicilio().setEstado(this.jTextField10.getText());
-       emp.setNumeroEmpleado(Integer.parseInt(this.jTextField11.getText()));
-       emp.setDepartamento(this.jTextField12.getText());
-       emp.setSueldo(Float.parseFloat(this.jTextField13.getText()));
-       emp.setHorasExtra(Integer.parseInt(this.jTextField14.getText()));
+       emp.getDomicilio().setCp(this.jTextField11.getText());
+       emp.setNumeroEmpleado(Integer.parseInt(this.jTextField12.getText()));
+       emp.setDepartamento(this.jTextField13.getText());
+       emp.setSueldo(Float.parseFloat(this.jTextField14.getText()));
+       emp.setHorasExtra(Integer.parseInt(this.jTextField15.getText()));
        int confirmar =JOptionPane.showConfrmDialog(this., "Deseas guardar estos datos?");
-       
+       //subirlo a memoria 
+       System.out.println("botón:" + confirmar)
+       if (confirmar ==0) {       
+       lista.add(emp);
+       }else{
+           JOptinPane.showMessageDialog( this , "¡¡¡ No se guardo el empleado !!! ")
        
     }//GEN-LAST:event_jButton5MouseClicked
-
+       System.out.println("Empleados en el ARREGLO = " + lista.size() );
+       limpiarformulario();
+       jButton6.setEnable(false);
+       
+       
+    }
+    
+    
     private void LimpiarFormulario(){
          this.jTextField1.setText("");
          this.jTextField2.setText("");
